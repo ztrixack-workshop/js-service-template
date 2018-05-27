@@ -1,12 +1,13 @@
 import request from 'supertest'
 
-import app from '../../'
+import server from '../src/server'
+
+const app = server()
 
 describe('API', () => {
-
-  it('GET /, Service is fine!', (done) => {
+  it('GET / Service is fine!', (done) => {
     request(app)
       .get('/')
-      .expect(200, 'Service is fine!', done)
+      .expect(200, done)
   })
 })

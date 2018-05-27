@@ -12,7 +12,7 @@ const expressConfig = (app) => {
   } else {
     production(app)
   }
-  
+
   app.use(methodOverride())
 
   app.use(bodyParser.urlencoded({ extended: true }))
@@ -23,10 +23,10 @@ const expressConfig = (app) => {
 
 const development = (app) => {
   app.use(morgan('dev'))
-} 
+}
 
 const production = (app) => {
   app.use(morgan('common'))
-} 
+}
 
 export default expressConfig
