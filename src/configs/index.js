@@ -1,16 +1,3 @@
-import dotenv from 'dotenv'
+import config from './config'
 
-import development from './env/development'
-import production from './env/production'
-
-const configs = () => {
-  dotenv.config()
-
-  if (process.env.NODE_ENV !== 'production') {
-    return development
-  } else {
-    return production
-  }
-}
-
-export default configs()
+export default config
