@@ -4,10 +4,10 @@ import cors from 'cors'
 import methodOverride from 'method-override'
 import morgan from 'morgan'
 
-import configs from './'
+import config from './'
 
 const expressConfig = (app) => {
-  if (configs.debug) {
+  if (config.debug) {
     development(app)
   } else {
     production(app)

@@ -1,5 +1,3 @@
-import configs from './'
-
 import index from '../routes'
 
 const routerConfig = (app) => {

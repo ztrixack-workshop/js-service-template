@@ -1,17 +1,21 @@
 import cors from 'cors'
 import express from 'express'
 
-import apis from '../apis'
-import configs from '../configs'
+import config from '../configs'
 
 const router = express.Router()
 
-if (configs.debug) {
+const check = (req, res) => {
+  res.status(200).send('Service is fine!')
+}
+
+if (config.debug) {
   router.options('*', cors())
 } else {
   router.options('/', cors())
 }
 
-router.get('/', apis.get)
+router.route('/')
+  .get(check)
 
 export default router

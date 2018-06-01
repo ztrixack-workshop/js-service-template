@@ -1,8 +1,6 @@
 import request from 'supertest'
 
-import server from '../src/server'
-
-const app = server()
+import app from '../src/server'
 
 describe('API', () => {
   it('GET / Service is fine!', (done) => {
