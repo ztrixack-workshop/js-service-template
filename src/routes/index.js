@@ -16,6 +16,6 @@ if (config.debug) {
 }
 
 router.route('/')
-  .get(check)
+  .all(check)
 
 export default router
