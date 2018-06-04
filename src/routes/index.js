@@ -2,11 +2,12 @@ import cors from 'cors'
 import express from 'express'
 
 import config from '../configs'
+import resp from '../helpers/resp'
 
 const router = express.Router()
 
 const check = (req, res) => {
-  res.status(200).send('Service is fine!')
+  res.status(200).send(resp.success(200, 'Service is fine!'))
 }
 
 if (config.debug) {
