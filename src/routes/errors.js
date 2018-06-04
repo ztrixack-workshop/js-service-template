@@ -1,15 +1,12 @@
 import express from 'express'
 
 import config from '../configs'
+import resp from '../helpers/resp'
 
 const router = express.Router()
 
 const notFound = (req, res) => {
-  res.status(404).send({
-    code: 404,
-    status: 'error',
-    message: 'Sorry, api not found',
-  })
+  res.status(404).send(resp.clientError(404, 'Sorry, api not found'))
 }
 
 const logError = (err, req, res, next) => {
@@ -20,23 +17,15 @@ const logError = (err, req, res, next) => {
 }
 
 const manualError = (err, req, res, next) => {
-  if (err.code) {  
-    return res.status(err.code).json({
-      code: err.code,
-      status: 'error',
-      message: err.message,
-    })
+  if (err && err.code) {
+    return res.status(err.code).json(err)
   }
 
   next(err)
 }
 
 const defaultError = (err, req, res, next) => {
-  return res.status(500).json({
-    code: 500,
-    status: 'error',
-    message: err.stack || err.message || err || 'internal error',
-  })
+  return res.status(500).json(resp.serverError(500, err.stack || err.message || err || 'internal error'))
 }
 
 router.route('*')
