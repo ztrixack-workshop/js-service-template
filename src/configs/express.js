@@ -1,18 +1,18 @@
 import bodyParser from 'body-parser'
 import compression from 'compression'
-import cors from 'cors'
+
 import methodOverride from 'method-override'
 import morgan from 'morgan'
 
-import configs from './'
+import config from './'
 
 const expressConfig = (app) => {
-  if (configs.debug) {
+  if (config.debug) {
     development(app)
   } else {
     production(app)
   }
-  
+
   app.use(methodOverride())
 
   app.use(bodyParser.urlencoded({ extended: true }))
@@ -23,10 +23,10 @@ const expressConfig = (app) => {
 
 const development = (app) => {
   app.use(morgan('dev'))
-} 
+}
 
 const production = (app) => {
   app.use(morgan('common'))
-} 
+}
 
 export default expressConfig

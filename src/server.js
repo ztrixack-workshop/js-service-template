@@ -1,18 +1,21 @@
 import express from 'express'
 
+import config from './configs'
 import expressConfig from './configs/express'
 import routerConfig from './configs/router'
-import { errorHandlers } from './handles'
+import errorConfig from './configs/error'
 
-const server = () => {
-  const app = express()
+const app = express()
 
-  expressConfig(app)
-  routerConfig(app)
+expressConfig(app)
+routerConfig(app)
+errorConfig(app)
 
-  errorHandlers(app)
+app.set('trust proxy', true)
+app.set('port', config.port)
 
-  return app
-}
+app.listen(app.get('port'), () => {
+  console.log('Listening on port', app.get('port'))
+})
 
-export default server
+export default app

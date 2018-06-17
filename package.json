@@ -4,7 +4,7 @@
   "description": "Template Service",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "babel src -d build",
     "start": "nodemon --exec babel-node -- index.js",
     "clean": "rm -rf build && mkdir build",
     "test": "nodemon --exec \"mocha --require babel-core/register --recursive -R spec test/**/**.spec.js\""
@@ -14,17 +14,18 @@
     "url": "git+https://ztrixack@bitbucket.org/lazts/template.git"
   },
   "keywords": [
-    "authen"
+    "template"
   ],
   "author": "ztrixack (ztrixack.th@gmail.com)",
   "license": "MIT",
   "homepage": "https://bitbucket.org/lazts/template#readme",
   "dependencies": {
-    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "compression": "^1.7.2",
     "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "joi": "^13.3.0",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0"
   },

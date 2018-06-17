@@ -1,12 +1,3 @@
-import development from './env/development'
-import production from './env/production'
+import config from './config'
 
-const configs = () => {
-  if (process.env.NODE_ENV !== 'production') {
-    return development
-  } else {
-    return production
-  }
-}
-
-export default configs()
+export default config
