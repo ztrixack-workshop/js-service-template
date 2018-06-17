@@ -1,5 +1,4 @@
 import dotenv from 'dotenv'
-import joi from 'joi'
 
 const result = dotenv.config()
 
