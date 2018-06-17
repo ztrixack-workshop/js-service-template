@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser'
 import compression from 'compression'
-import cors from 'cors'
+
 import methodOverride from 'method-override'
 import morgan from 'morgan'
 
